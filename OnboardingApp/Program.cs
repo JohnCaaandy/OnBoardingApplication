@@ -13,7 +13,10 @@ namespace OnboardingApp
             var person = new User();
             person.FirstName = AskQuestion("What is your first name?");
             person.LastName = AskQuestion("What is your last name?");
-            Console.WriteLine("hello" + person.FirstName);
+            var owner = new User();
+            owner.IsOwner = AskQuestion("Are you the Account Owner?");
+            Console.WriteLine("hello " + person.FirstName);
+            Console.WriteLine("Thanks for banking with us, Mr. " + person.LastName);
         }
 
         private static string AskQuestion(string question)
@@ -22,4 +25,6 @@ namespace OnboardingApp
             return Console.ReadLine();
         }
     }
+
 }
+
