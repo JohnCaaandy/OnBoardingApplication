@@ -11,7 +11,7 @@ namespace OnboardingApp
             person.LastName = AskQuestion("What is your last name?");
             Console.WriteLine("hello " + person.FirstName);
 
-            person.IsOwner = AskQuestion("Are you the Account Owner? Please enter y for yes or n for no.");
+            person.IsOwner = IsUser("Are you the Account Owner? Please enter yes or no.");
             Console.WriteLine("Thanks for banking with us, " + person.FirstName + person.LastName);
 
             person.PinNumber = NewPin("What is your 4 digit pin number?");
@@ -39,6 +39,23 @@ namespace OnboardingApp
             }
 
             return NewPin(p);
+        }
+
+        private static bool IsUser(string u)
+        {
+            var ifUser = AskQuestion(u);
+            if (ifUser == "yes")
+            {
+                return true; 
+            }
+
+            if (ifUser == "no")
+            {
+                return false;
+            }
+
+            return Boolean.Parse("invalid input, please try again");
+
         }
     }
 }
