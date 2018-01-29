@@ -12,12 +12,10 @@ namespace OnboardingApp
             Console.WriteLine("hello " + person.FirstName);
 
             person.IsOwner = IsUser("Are you the Account Owner? Please enter yes or no.");
-            Console.WriteLine("Thanks for banking with us, " + person.FirstName + person.LastName);
+            Console.WriteLine("Thanks for banking with us, " + person.FirstName + " " + person.LastName);
 
             person.PinNumber = NewPin("What is your 4 digit pin number?");
-            Console.ReadLine();
-
-            Console.WriteLine("Okay, thank you " + person.FirstName);
+            Console.WriteLine("Okay, thank you " + person.FirstName + ", we appreciate you banking with us here at John Candy Bank of Canada");
             Console.ReadLine();
 
             
