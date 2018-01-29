@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnboardingApp
 {
@@ -13,10 +9,18 @@ namespace OnboardingApp
             var person = new User();
             person.FirstName = AskQuestion("What is your first name?");
             person.LastName = AskQuestion("What is your last name?");
-            var owner = new User();
-            owner.IsOwner = AskQuestion("Are you the Account Owner?");
             Console.WriteLine("hello " + person.FirstName);
-            Console.WriteLine("Thanks for banking with us, Mr. " + person.LastName);
+
+            person.IsOwner = AskQuestion("Are you the Account Owner? Please enter y for yes or n for no.");
+            Console.WriteLine("Thanks for banking with us, " + person.FirstName + person.LastName);
+
+            person.PinNumber = NewPin("What is your 4 digit pin number?");
+            Console.ReadLine();
+
+            Console.WriteLine("Okay, thank you " + person.FirstName);
+            Console.ReadLine();
+
+            
         }
 
         private static string AskQuestion(string question)
@@ -24,7 +28,18 @@ namespace OnboardingApp
             Console.WriteLine(question);
             return Console.ReadLine();
         }
-    }
 
+        private static int NewPin(string p)
+        {
+            var response = AskQuestion(p);
+
+            if (int.TryParse(response, out var number))
+            {
+                return number;
+            }
+
+            return NewPin(p);
+        }
+    }
 }
 

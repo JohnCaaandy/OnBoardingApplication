@@ -11,6 +11,7 @@ namespace OnboardingApp
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IsOwner { get; set; }
+        public int PinNumber { get; set; }
         //public static string AskQuestion(string question)
         //{
         //    Console.WriteLine(question);
